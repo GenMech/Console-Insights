@@ -1,0 +1,16 @@
+{
+  "name": "console-cleaner",
+  "version": "1.0.0",
+  "description": "A CLI tool to find, report, and remove console statements from code.",
+  "author": "Gitesh Pareek",
+  "license": "MIT",
+  "bin": {
+    "console-cleaner": "./bin/index.js"
+  },
+  "dependencies": {
+    "@babel/parser": "^7.27.2",
+    "commander": "^11.0.0",
+    "glob": "^10.3.10",
+    "recast": "^0.23.5"
+  }
+}
