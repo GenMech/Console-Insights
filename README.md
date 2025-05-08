@@ -1,3 +1,5 @@
+![Console-Insights](https://socialify.git.ci/GenMech/Console-Insights/image?language=1&name=1&owner=1&pattern=Circuit+Board&theme=Light)
+
 # console-insights
 
 A powerful CLI tool to **gain insights, find, report, and remove `console.*` statements** from JavaScript, TypeScript, and JSX/TSX files.  
