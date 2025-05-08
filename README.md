@@ -39,9 +39,19 @@ Count in a specific file:
 console-insights count src/App.jsx
 ```
 
+Count only `console.log` and `console.warn` in a specific file:
+```sh
+console-insights count src/App.jsx --methods log,warn
+```
+
 Count in all JS/JSX/TS/TSX files recursively:
 ```sh
 console-insights count "**/*.{js,jsx,ts,tsx}"
+```
+
+Count only `console.error` in all files:
+```sh
+console-insights count "**/*.{js,jsx,ts,tsx}" --methods error
 ```
 
 ### Report all console statements (file, line, code)
@@ -51,9 +61,19 @@ Report in a specific file:
 console-insights report src/App.jsx
 ```
 
+Report only `console.log` and `console.warn` in a specific file:
+```sh
+console-insights report src/App.jsx --methods log,warn
+```
+
 Report in all files:
 ```sh
 console-insights report "**/*.{js,jsx,ts,tsx}"
+```
+
+Report only `console.error` in all files:
+```sh
+console-insights report "**/*.{js,jsx,ts,tsx}" --methods error
 ```
 
 ### Show a summary table
@@ -109,11 +129,15 @@ console-insights remove src/App.jsx --methods log,warn --lines 10,15 --dry-run
 | Command Example                                                      | What it Does                                 |
 |--------------------------------------------------------------------- |----------------------------------------------|
 | `console-insights count src/App.jsx`                                  | Count all console statements in a file       |
+| `console-insights count src/App.jsx --methods log,warn`              | Count only `console.log` and `console.warn` in a file |
 | `console-insights report src/App.jsx`                                 | List all console statements in a file        |
+| `console-insights report src/App.jsx --methods log,warn`             | List only `console.log` and `console.warn` in a file |
 | `console-insights summary src/App.jsx`                                | Show summary for a single file               |
 | `console-insights remove src/App.jsx`                                 | Remove all console statements from a file    |
 | `console-insights count "**/*.js"`                                    | Count all console statements in JS files     |
+| `console-insights count "**/*.js" --methods error`                   | Count only `console.error` in JS files       |
 | `console-insights report "src/**/*.{js,jsx}"`                         | List all console statements in src/          |
+| `console-insights report "src/**/*.{js,jsx}" --methods warn`         | List only `console.warn` in src/             |
 | `console-insights summary "**/*.{js,jsx,ts,tsx}"`                     | Show summary table for all code files        |
 | `console-insights remove "**/*.js" --dry-run`                         | Show what would be removed (no changes)      |
 | `console-insights remove "**/*.js" --methods log,warn`                | Remove only `console.log` and `console.warn` |
@@ -125,7 +149,7 @@ console-insights remove src/App.jsx --methods log,warn --lines 10,15 --dry-run
 | Option         | Description                                                      |
 |----------------|------------------------------------------------------------------|
 | `--dry-run`    | Show what would be removed, but do not modify files              |
-| `--methods`    | Comma-separated list of console methods to remove (e.g. log,warn)|
+| `--methods`    | Comma-separated list of console methods to count/report/remove (e.g. log,warn)|
 | `--lines`      | Comma-separated list of line numbers to remove (e.g. 10,15)      |
 
 ## Why use console-insights?
