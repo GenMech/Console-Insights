@@ -9,8 +9,10 @@ const summaryConsoles = require('../lib/summary');
 program
     .command('count [pattern]')
     .description('Count console statements in files')
-    .action((pattern = '**/*.js') => {
-        countConsoles(pattern);
+    .option('--methods <methods>', 'Comma-separated list of console methods to count (e.g. log,warn)')
+    .action((pattern = '**/*.js', options) => {
+        const methods = options.methods ? options.methods.split(',').map(m => m.trim()) : null;
+        countConsoles(pattern, methods);
     });
 
 program
@@ -29,9 +31,11 @@ program
 program
     .command('report [patterns...]')
     .description('Report all console statements with file and line number')
-    .action((patterns = ['**/*.js']) => {
+    .option('--methods <methods>', 'Comma-separated list of console methods to report (e.g. log,warn)')
+    .action((patterns = ['**/*.js'], options) => {
         const pattern = patterns.length === 1 ? patterns[0] : `{${patterns.join(',')}}`;
-        reportConsoles(pattern);
+        const methods = options.methods ? options.methods.split(',').map(m => m.trim()) : null;
+        reportConsoles(pattern, methods);
     });
 
 program

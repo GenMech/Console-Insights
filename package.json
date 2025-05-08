@@ -2,6 +2,23 @@
   "name": "console-insights",
   "version": "1.0.1",
   "description": "A CLI tool to find, report, and remove console statements from code.",
+  "keywords": [
+    "console",
+    "console.log",
+    "remove console",
+    "find console",
+    "report console",
+    "clean code",
+    "cli",
+    "javascript",
+    "typescript",
+    "jsx",
+    "tsx",
+    "logging",
+    "code quality",
+    "static analysis",
+    "devtools"
+  ],
   "author": "Gitesh Pareek",
   "license": "MIT",
   "bin": {
